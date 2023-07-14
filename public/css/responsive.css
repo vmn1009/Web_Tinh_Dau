@@ -1,0 +1,113 @@
+@media (max-width: 1919px) {
+    .font-size-responsive {
+        font-size: 12px !important;
+    }
+    .hea-new-product-catagory{
+        max-width: 100%;
+    }
+
+    .hea-about-us-image{
+        width: 890px !important;
+    }
+}
+@media (max-width: 1750px) {
+    .hea-flash-product-title{
+        font-size: 17px;
+    }
+    .hea-flash-product-icon-start{
+        font-size: 14px;
+    }
+    .font-size-responsive {
+        font-size: 11px !important;
+    }
+    .hea-infor-span1{
+        font-size: 17px;
+    }
+    .hea-infor-row{
+        padding: 0 20px;
+    }
+
+}
+@media (max-width: 1600px) {
+    .font-size-responsive {
+        font-size: 10px !important;
+    }
+}
+@media (max-width: 1500px) {
+    .font-size-responsive {
+        font-size: 10px !important;
+    }
+    .hea-flash-product-icon-start{
+        font-size: 10px;
+        width: 12px;
+        height: 12px;
+    }
+    .hea-flash-product-price{
+        font-size: 16px;
+    }
+    .hea-flash-product-saleoff{
+        font-size: 18px;
+    }
+}
+
+
+@media (max-width: 1919px) {
+    .font-size-responsive {
+        font-size: 12px !important;
+    }
+
+}
+@media (max-width: 1750px) {
+    .hea-flash-product-title{
+        font-size: 17px;
+    }
+    .hea-flash-product-icon-start{
+        font-size: 14px;
+    }
+    .font-size-responsive {
+        font-size: 11px !important;
+    }
+    .hea-flash-product-icon-start{
+        font-size: 12px;
+        width: 14px;
+        height: 14px;
+    }
+}
+@media (max-width: 1600px) {
+    .font-size-responsive {
+        font-size: 10px !important;
+    }
+    .hea-flash-product-icon-start{
+        font-size: 11px;
+        width: 14px;
+        height: 14px;
+    }
+    .hea-flash-product-price{
+        font-size: 17px;
+    }
+    .hea-flash-product-saleoff{
+        font-size: 19px;
+    }
+    .hea-flash-product-catagory-amount{
+        font-size: 16px;
+    }
+}
+@media (max-width: 1500px) {
+    .font-size-responsive {
+        font-size: 10px !important;
+    }
+    .hea-flash-product-icon-start{
+        font-size: 10px;
+        width: 12px;
+        height: 12px;
+    }
+    .hea-flash-product-price{
+        font-size: 16px;
+    }
+    .hea-flash-product-saleoff{
+        font-size: 18px;
+    }
+}
+
+
+
