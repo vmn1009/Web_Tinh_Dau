@@ -1,0 +1,208 @@
+.hea-flash-product-catagory-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.hea-flash-product-icon-start{
+    font-size: 16px;
+    width: 20px;
+    height: 20px;
+    padding: 0px;
+}
+.hea-flash-product-catagory{
+    margin-top: 59px;
+    margin-bottom: 24px;
+}
+.hea-flash-product-banner{
+    margin-top: 116px;
+    margin-bottom: -85px;
+}
+
+
+
+.hea-about-us{
+    display: flex;
+    align-items: center;
+    margin-top: 155px;
+}
+.hea-about-us-title{
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    overflow: hidden;
+}
+.hea-about-us-container > span{
+    font-style: italic;
+    font-weight: 400;
+    font-size: 165px;
+    color: #924C32;
+
+}
+.hea-about-us-decs{
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    position: relative;
+    width: 534px;
+    height: 160px;
+}
+.hea-about-us-container{
+    display: flex;
+    align-items: end;
+}
+.hea-about-us-content{
+    padding-left: 49px;
+}
+.hea-about-us-sign{
+    font-family: 'Dancing Script', cursive;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 120px;
+    color: #924C32;
+    display: block;
+    text-align: end;
+}
+.head-about-us-btn{
+    float: right;
+    margin-top: 110px;
+    border-radius: 10px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn{
+    color: white;
+}
+.hea-about-us-image{
+    max-width: 58%;
+}
+.hea-about-us-content{
+    max-width: 43%;
+}
+
+.d-block{
+    width: 70% !important;
+}
+.carousel-adver{
+    height: auto;
+    margin-top: 28px;
+}
+.carousel-item > img{
+    width: 100% !important;
+}
+.carousel-indicators > li{
+    width: 14px;
+    height: 14px;
+    margin: 0 9px;
+    border-radius: 100%;
+}
+
+
+.hea-new-product-saleoff-home{
+    margin-left: 19px !important;
+}
+.product-link-detail{
+    flex-direction: unset !important;
+
+}
+
+.lSPager{
+    display:none;
+}
+.lSAction > a {
+
+    background-color:#00000033;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    opacity:0.8;
+    background-image:none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lSAction > a::after{
+
+    content:'';
+    margin:auto;
+    border: solid #ffffff;
+    border-width: 0 4px 4px 0;
+    display: inline-block;
+    padding: 5px;
+}
+.lSAction > .lSPrev::after {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.lSAction > .lSNext::after {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+}
+.product-box{
+    max-width: 100% !important;
+    max-height: 55% !important;
+}
+
+
+
+.hea-header-container-template2{
+    background-color: white;
+    z-index: 100;
+}
+
+.accordion-button{
+    background-color: transparent !important;
+    padding: 16px 0;
+    color: #924C32 !important;
+    font-size: 14px;
+    font-weight: 600;
+    border: none;
+}
+.accordion-button:focus{
+    background-color: transparent;
+    padding: 16px 0;
+    outline: none;
+    box-shadow: none;
+}
+.accordion-item{
+    border: none;
+}
+.accordion-text-item{
+    color: #924C32 !important;
+    font-size: 12px;
+    font-weight: 400;
+}
+.btn-close{
+    color: #924C32 !important;
+}
+#navbarTogglerDemo04{
+    padding: 16px;
+    position: fixed; inset: 0;
+}
+.hea-header-navbar-logo-template2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.navbar-toggler-icon{
+    color: #924C32;
+}
+.navbar-toggler{
+    border: none;
+    padding: 0;
+}
+.show-pop-up{
+    display: block !important;
+}
+.remove{
+    display: none;
+}
+.navbar-container-template2{
+    display: none;
+}
+
+
+

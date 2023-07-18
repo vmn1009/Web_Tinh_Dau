@@ -7,6 +7,21 @@
         padding: 0 20px;
     }
 }
+.hea-flash-product-catagory-title{
+    margin: 0!important;
+}
+.hea-flash-product-catagory-btn{
+    color: white;
+}
+.hea-flash-product-item{
+    border-radius: 1px solid 
+}
+.hea-flash-product-item:hover{
+    box-shadow: 2px 2px 18px rgba(0,0,0,0.10);
+    transform: scale(1.008);
+    transition: all 0.3s ease;
+}
+}
 </style>
 <div class="hea-infor">
     <div class="row ">
@@ -63,25 +78,25 @@
 
 <div>
     <div class="hea-flash-product-catagory">
-        <p class="text-md hea-flash-product-catagory-title"><i class="x fa-sharp fa-solid fa-bolt"></i>Deal đang diễn ra1</p>
-        <button type="button" class="btn  hea-flash-product-catagory-btn">Xem tất cả<i class="fas fa-arrow-right"></i>
+        <p class="text-md hea-flash-product-catagory-title"><i class="x fa-sharp fa-solid fa-bolt"></i>Deal đang diễn ra</p>
+        <button type="button" class="hea-flash-product-catagory-btn">Xem tất cả<i class="fas fa-arrow-right"></i>
         </button>
     </div>
     <div class="card-body  hea-flash-product-catagory-container">
         <ul id="autoWidth" class="cs-hidden">
             <!--1------------------------------>
-            @for($j = 0; $j < 7; $j++)
-            <li class="item-a">
+            @foreach ($otherListProductByCategory[2] as $item)
+            <li class="item-a hea-flash-product-item-product">
                 <div class="card hea-flash-product-item">
                     <div class="position-relative">
-                        <img src="{{asset('assets/clients/images/new1.png')}}" class="card-img-top img-fluid hea-flash-product-image" alt="...">
+                        <img src="{{$item->image}}" class="card-img-top img-fluid hea-flash-product-image" alt="...">
                         <span class="hea-flash-product-saleoff-rate">-20%</span>
                     </div>
                     <div class="card-body hea-flash-product-body">
-                        <h5 class="card-title hea-flash-product-title">Serum HA Cấp Ẩm Phục Hồi Da Chống Lão Hóa To...</h5>
+                        <h5 class="card-title hea-flash-product-title">{{$item->label}}</h5>
                         <div>
-                            <p class="card-text hea-flash-product-price">140.000đ</p>
-                            <p class="card-text hea-flash-product-saleoff">140.000đ</p>
+                            <p class="card-text hea-flash-product-price">{{$item->realPrice}}đ</p>
+                            <p class="card-text hea-flash-product-saleoff">{{$item->price}}đ</p>
                         </div>
                         <div>
                             <div style="display: flex">
@@ -101,7 +116,7 @@
                     </div>
                 </div>
             </li>
-            @endfor
+            @endforeach
             <!--2------------------------------>
         </ul>
     </div>

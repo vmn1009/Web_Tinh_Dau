@@ -47,48 +47,50 @@
 <div>
     <div class="hea-new-product-catagory">
         <p class="hea-new-product-catagory-title">Sản phẩm mới ra mắt</p>
-        </button>
     </div>
     <section class="products-slider product-container-desktop">
         <div class="product-container">
             <ul class="autoWidth" class="cs-hidden">
-                @for($i=0; $i<6; $i++)
+                @foreach ($otherListProductByCategory[2] as $item)
                 <li class="item-a">
                     <div class="product-box">
-                        <img src="{{asset('assets/clients/images/new1.png')}}" class="card-img-top hea-new-product-image" alt="...">
+                        <img src="{{$item->image}}" onclick=" window.location='/product-detail/{{ $item->url }}'" class="card-img-top hea-new-product-image" alt="...">
                         <div class="card-body hea-new-product-body">
-                            <h5 class="card-title hea-new-product-title">Serum HA Cấp Ẩm Phục Hồi Da Chống Lão Hóa To...</h5>
+                            <h5 onclick=" window.location='/product-detail/{{ $item->url }}'" class="card-title hea-new-product-title">{{$item->label}}</h5>
                             <div>
-                                <p class="card-text hea-new-product-price">140.000đ</p>
-                                <p class="card-text hea-new-product-saleoff">140.000đ</p>
-                                <a href="#" class="hea-new-product-btn"><i class="fas fa-shopping-cart hea-new-product-icon-cart"></i></a>
+                                <p class="card-text hea-new-product-price" onclick=" window.location='/product-detail/{{ $item->url }}'">{{$item->realPrice}}đ</p>
+                                <p class="card-text hea-new-product-saleoff" onclick=" window.location='/product-detail/{{ $item->url }}'"> {{$item->price}}đ</p>
+                                <button onclick="handleToastButtonClick(); handleAddProduct({{ $item->id }})" id="liveToastBtn" class="hea-new-product-btn" style="z-index: 100">
+                                    <i class="fas fa-shopping-cart hea-new-product-icon-cart"></i>
+                                </button>
                             </div>
                         </div>
-                        </a>
                     </div>
                 </li>
-                @endfor
+                @endforeach
             </ul>
         </div>
     </section>
 
     <section class="product-container-mobile">
         <div class="product-grid">
-            @for($i=0; $i<4; $i++)
+            @foreach ($otherListProductByCategory[3] as $item)
             <div class="product-box-responsive">
-                <img src="{{asset('assets/clients/images/new1.png')}}" class="img-fluid card-img-top hea-new-product-image" alt="...">
+                <img src="{{$item->image}}" onclick=" window.location='/product-detail/{{ $item->url }}'" class="card-img-top img-fluid hea-new-product-image" alt="...">
                 <div class="card-body hea-new-product-body">
-                    <h5 class="card-title hea-new-product-title">Serum HA Cấp Ẩm Phục Hồi Da Chống Lão Hóa To...</h5>
+                    <h5 onclick=" window.location='/product-detail/{{ $item->url }}'" class="card-title hea-new-product-title">{{$item->label}}</h5>
                     <div>
                         <div>
-                            <p class="card-text hea-new-product-price">140.000đ</p>
-                            <p class="card-text hea-new-product-saleoff">140.000đ</p>
+                            <p class="card-text hea-new-product-price" onclick=" window.location='/product-detail/{{ $item->url }}'">{{$item->realPrice}}đ</p>
+                            <p class="card-text hea-new-product-saleoff" onclick=" window.location='/product-detail/{{ $item->url }}'"> {{$item->price}}đ</p>
                         </div>
-                        <a href="#" class="hea-new-product-btn"><i class="fas fa-shopping-cart hea-new-product-icon-cart"></i></a>
+                        <button onclick="handleToastButtonClick(); handleAddProduct({{ $item->id }})" id="liveToastBtn" class="hea-new-product-btn" style="z-index: 100">
+                            <i class="fas fa-shopping-cart hea-new-product-icon-cart"></i>
+                        </button>
                     </div>
                 </div>
             </div>
-            @endfor
+            @endforeach
         </div>
     </section>
 </div>

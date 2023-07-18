@@ -157,6 +157,14 @@
         border: none;
         margin-top: 26px;
     }
+    input[type="radio"].form-check-input:checked {
+        background-color: #924C32;
+        border: 1px solid #924C32;
+    }
+    .hea-product-cart-input-code-discount{
+        border: 1px solid gray;
+    }
+
 
 </style>
 <main style="padding: 0 97px" class="hea-product-cart-container">
@@ -177,29 +185,20 @@
             </div>
             <div class="col-md-4">
                 <label for="inputCity" class="form-label">Tỉnh/thành phố *</label>
-                <select id="selectCity" class="form-select">
+                <select id="city" class="form-select">
                     <option selected>Chọn tỉnh/thành phố </option>
-                    <option>Hồ Chí Minh</option>
-                    <option>Ninh Thuận</option>
-                    <option>Tiền Giang</option>
                 </select>
             </div>
             <div class="col-md-4">
                 <label for="inputState" class="form-label">Quận/huyện *</label>
-                <select id="selectDistrict" class="form-select">
+                <select id="district" class="form-select">
                     <option selected>Chọn quận/huyện</option>
-                    <option>Ninh Sơn</option>
-                    <option>Ninh Hải</option>
-                    <option>Bác Ái</option>
                 </select>
             </div>
             <div class="col-md-4">
                 <label for="inputState" class="form-label">Phường/Xã *</label>
-                <select id="selectWard" class="form-select">
+                <select id="ward" class="form-select">
                     <option selected>Chọn phường/xã</option>
-                    <option>Ninh Sơn</option>
-                    <option>Ninh Hải</option>
-                    <option>Bác Ái</option>
                 </select>
             </div>
 
@@ -214,13 +213,13 @@
             <div class="col-12">
                 <label for="inputAddress2" class="form-label">Chọn hình thức thanh toán</label>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" id="gridCheck" name="option">Thanh toán khi giao hàng (COD)
-                    <label class="form-check-label" for="gridCheck">
-
-                    </label>
+                    <input class="form-check-input" type="radio" id="gridCheck" name="option" checked>
+                    <label class="form-check-label" for="gridCheck">Thanh toán khi giao hàng (COD)</label>
                 </div>
             </div>
         </form>
+
+
     </section>
     <section class="card hea-product-cart-posts">
         <h3 class="hea-product-cart-list-title">Chi tiết đơn hàng</h3>
@@ -244,18 +243,20 @@
                 <li>0đ</li>
             </ul>
         </div>
-        <div class="hea-product-cart-content-cost-total">
+        <div class="hea-product-cart-content-cost-total ">
             <div>
-                <span>Tổng </span>
-                <span>1.000.000đ</span>
+                <span class="hea-product-cart-content-text-total">Tổng </span>
+                <span class="hea-product-cart-content-price-total">1.000.000đ</span>
             </div>
-            <button class="btn hea-product-cart-button-payment submitButton" onclick="getInfo();createOrder()">Thanh toán</button>
+            <button class="hea-product-cart-button-payment submitButton" onclick="getInfo();createOrder(); redirectToPage()">Thanh toán</button>
         </div>
     </section>
 </main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+
 <script>
+
     let content = $("meta[name=csrf-token]").attr("content");
-    // Viết logic hiển thị danh sách của giỏ hàng
     fetch('https://www.heagarden.com/jsonapi/basket?id=default')
         .then(response => response.json())
         .then(data => {
@@ -355,11 +356,11 @@
         const fullName = document.getElementById('inputFullName').value;
         const phoneNumber = document.getElementById('inputPassword').value;
         const email = document.getElementById('inputEmail').value;
-        let item1 = document.getElementById("selectCity");
+        let item1 = document.getElementById("city");
         let city = item1.options[item1.selectedIndex].text;
-        let item2 = document.getElementById("selectDistrict");
+        let item2 = document.getElementById("district");
         let district = item2.options[item2.selectedIndex].text;
-        const item3 = document.getElementById('selectWard');
+        const item3 = document.getElementById('ward');
         const ward = item3.options[item3.selectedIndex].text;
         const address = document.getElementById('inputAddress').value;
         const note = document.getElementById('inputTakeNote').value;
@@ -433,6 +434,47 @@
                     }
                 }
             );
+    }
+
+    var citis = document.getElementById("city");
+    var districts = document.getElementById("district");
+    var wards = document.getElementById("ward");
+    var Parameter = {
+        url: "https://raw.githubusercontent.com/kenzouno1/DiaGioiHanhChinhVN/master/data.json",
+        method: "GET",
+        responseType: "application/json",
+    };
+    var promise = axios(Parameter);
+    promise.then(function (result) {
+        renderCity(result.data);
+    });
+
+    function renderCity(data) {
+        for (const x of data) {
+            citis.options[citis.options.length] = new Option(x.Name, x.Id);
+        }
+        citis.onchange = function () {
+            district.length = 1;
+            ward.length = 1;
+            if(this.value != ""){
+                const result = data.filter(n => n.Id === this.value);
+
+                for (const k of result[0].Districts) {
+                    district.options[district.options.length] = new Option(k.Name, k.Id);
+                }
+            }
+        };
+        district.onchange = function () {
+            ward.length = 1;
+            const dataCity = data.filter((n) => n.Id === citis.value);
+            if (this.value != "") {
+                const dataWards = dataCity[0].Districts.filter(n => n.Id === this.value)[0].Wards;
+
+                for (const w of dataWards) {
+                    wards.options[wards.options.length] = new Option(w.Name, w.Id);
+                }
+            }
+        };
     }
 </script>
 @endsection

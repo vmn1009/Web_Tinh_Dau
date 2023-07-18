@@ -25,12 +25,25 @@
         z-index: 999 !important;
 
     }
+    .toast-body{
+        width: 400px;
+        height: 271px;
+        background: white;
+        border-radius: 20px;
+        position: absolute;
+        right: 5%;
+        top: 5%;
+        z-index: 30000
+    }
+    .btn-close{
+        padding: 20px;
+    }
 </style>
     <toasty id="liveToast" class="toast overlay" role="alert">
         <div class="toast-cover"></div>
-            <div class="toast-body">
+            <div class="toast-body" style="">
                 <button type="button" class="btn-close toast-icon-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                <p class="toast-text">Đã thêm <span>1</span> sản phẩm vào giỏ hàng</p>
+                <p class="toast-text text-left">Đã thêm <span>1</span> sản phẩm vào giỏ hàng</p>
                 <div class="toast-content">
                     <img class="toast-image img-fluid" src="{{asset('assets/clients/images/tinhdau1.png')}}" alt="Card image cap">
                     <div>
@@ -38,7 +51,7 @@
                         <span class="toast-price">150.000đ</span>
                     </div>
                 </div>
-                <button id="toast-btn" class="  btn hea-product-detail-btn " id="liveToastBtn" style="align-items: center; background: #924C32;">Thanh toán
+                <button id="toast-btn" class="  btn hea-product-detail-btn " id="liveToastBtn"  style="align-items: center; background: #924C32;" onclick="window.location='/cart'">Thanh toán
                 </button>
             </div>
     </toasty>

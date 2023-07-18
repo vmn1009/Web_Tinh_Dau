@@ -8,6 +8,7 @@
     .hea-product-sidebar > h4{
         font-weight: 700;
         font-size: 24px;
+        color:#924C32;
     }
 
     .hea-sidebar-list-item{
@@ -81,6 +82,9 @@
         top: 8px;
         background-color: var(--third-color);
         color: white;
+        outline: none;
+        border: none;
+        border-radius: 8px;
     }
     .hea-product-card {
         margin-right: 32px;
@@ -96,9 +100,9 @@
     }
 
     .hea-category-card-body{
-        width: 270px !important;
+        width: 100% !important;
         padding: 0px;
-        height: 100px;
+        height: auto;
     }
     .hea-category-card-body >div{
         display: flex;
@@ -131,6 +135,10 @@
         font-size: 20px;
         color: #924C32 !important;
     }
+    .breadcrumb{
+        align-items: center !important;
+
+    }
     .breadcrumb-item:first-child{
         font-weight: 500;
         font-size: 20px;
@@ -149,12 +157,13 @@
         max-width: 268px;
     }
     .hea-category-card{
-        max-width: 50%;
-        max-height: auto;
+        max-width: 22%;
         padding: 24px;
         margin: 0 18px 32px;
         border: 1px solid #CDCDCD;
         border-radius: 8px;
+        box-sizing: border-box;
+        cursor: pointer;
     }
     .hea-category-price, .hea-category-saleoff{
         padding: 0;
@@ -198,14 +207,14 @@
             echo '<div class="hea-category-title">TINH DẦU</div>';
             echo '<div style="display: flex; flex-wrap: wrap">';
             foreach ($listProducts as $item) {
-                echo '<div class="hea-category-card card" href="/product-detail/' . $item->url . '" style="text-decoration: none; color: black">';
-                echo '<img src="' . $item->image . '" class="img-fluid card-img-top hea-category-image" alt="Image 1">';
-                echo '<div class="card-body hea-category-card-body" style="max-width: 106%;">';
-                echo '<p class="card-title hea-category-card-title">' . $item->label . '</p>';
+                echo '<div class="hea-category-card card"  href="/product-detail/' . $item->url . '" style="text-decoration: none; color: black">';
+                echo '<img src="' . $item->image . '" class="img-fluid card-img-top hea-category-image" onclick="window.location=\'/product-detail/'. $item->url . '\'" alt="Image 1">';
+                echo '<div class="card-body hea-category-card-body">';
+                echo '<p class="card-title hea-category-card-title" onclick="window.location=\'/product-detail/'. $item->url . '\'">' . $item->label . '</p>';
                 echo '<div class="" style="height: 50px; position: relative; padding-top: 13px;">';
-                echo '<span class="col-5 hea-category-price">' . $item->realPrice . '</span>';
-                echo '<span class="col-5 hea-category-saleoff">' . $item->price . '</span>';
-                echo '<button class="btn hea-product-btn" onclick="handleToastButtonClick(); handleAddProduct(' . $item->id . ')" style="padding: 0;">';
+                echo '<span class="col-5 hea-category-price" onclick="window.location=\'/product-detail/'. $item->url . '\'">' . $item->realPrice . 'đ' . '</span>';
+                echo '<span class="col-5 hea-category-saleoff" onclick="window.location=\'/product-detail/'. $item->url . '\'">' . $item->price . 'đ' . '</span>';
+                echo '<button class="hea-product-btn" onclick="handleToastButtonClick(); handleAddProduct(' . $item->id . ')" style="padding: 0;">';
                 echo '<i class="fas fa-shopping-cart hea-new-category-cart" style="border: none; font-size: 20px;"></i>';
                 echo '</button>';
                 echo '</div>';
@@ -232,12 +241,12 @@
                             <p class="card-text hea-new-product-price">{{$item->realPrice }}đ</p>
                             <p class="card-text hea-new-product-saleoff">{{$item->price}}đ</p>
                         </div>
-                        <a href="#" class="hea-new-product-btn"><i class="fas fa-shopping-cart hea-new-product-icon-cart"></i></a>
+                        <button href="#" class="hea-new-product-btn"><i class="fas fa-shopping-cart hea-new-product-icon-cart"></i></button>
                     </div>
                 </div>
             </div>
             @endforeach
         </div>
 </div>
-<script src="{{asset('js/tinhdau.js')}}"></script>
+<script src="{{asset('js/tinh_dau.js')}}"></script>
 @endsection

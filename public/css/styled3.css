@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Adventures Unlimited Script';
+    src: url('../Fonts/AdventuresUnlimited-ScriptBold.woff2') format('woff2'),
+    url('../Fonts/AdventuresUnlimited-ScriptBold.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}

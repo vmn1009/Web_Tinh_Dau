@@ -15,10 +15,11 @@ class HomeController extends IctBaseController
             $categories[$category->label] = Data::getProductByCategory($category->id);
         }
         $this->addData('allProductByCategory', $categories);
+        $this->addData('otherListProductByCategory', Data::getOtherCatagories());
         return $this->renderView();
     }
     public function slider(){
-        return view("layouts.slider");
+        return view("client.blocks.homeContent.slider");
     }
     public function index()
     {

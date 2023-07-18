@@ -33,7 +33,7 @@
         @endif
         <div class="hea-new-product-catagory">
             <p class="hea-new-product-catagory-title">{{ $item->label }}</p>
-            <button type="button" class="btn btn-primary hea-flash-product-catagory-btn" onclick="window.location.href='/category/{{ $item->url }}'">Xem tất cả<i class="fas fa-arrow-right"></i>
+            <button type="button" class="hea-flash-product-catagory-btn" onclick="window.location.href='/category/{{ $item->url }}'">Xem tất cả<i class="fas fa-arrow-right"></i>
             </button>
         </div>
         <section class="products-slider">
@@ -59,28 +59,22 @@
                     </li>
                     @endforeach
                 </ul>
-
-
                 <div id="hea-product-slider-tinhdau-mobile">
-                    <div class="hea-new-product-tinhdau">
-                        @foreach ($allProductByCategory[$item->label] as $category)
-                        <li class="item-a hea-new-product-tinhdau-item" style="list-style: none">
-                            <div class="product-box" onclick="">
-                                <img src="{{ $category->image }}" onclick=" window.location='/product-detail/{{ $category->url }}'" class="card-img-top hea-new-product-image img-fluid" alt="{{ $category->imageLabel }}">
-                                <div class="card-body hea-new-product-body">
-                                    <h5 onclick=" window.location='/product-detail/{{ $category->url }}'" class="card-title hea-new-product-title" style="color: black">{{ $category->label }}</h5>
-                                    <div style="margin-top: 10px" class="hea-new-product-cost-cart">
-                                        <div class="hea-new-product-cost">
-                                            <p onclick=" window.location='/product-detail/{{ $category->url }}'" class="card-text hea-new-product-price">{{ $category->realPrice }}đ</p>
-                                            <p onclick=" window.location='/product-detail/{{ $category->url }}'" class="card-text hea-new-product-saleoff-home hea-new-product-saleoff">{{ $category->price }}đ</p>
-                                        </div>
-                                        <button onclick="handleToastButtonClick(); handleAddProduct({{ $category->id }})" id="liveToastBtn" class="hea-new-product-btn" style="z-index: 100">
-                                            <i class="fas fa-shopping-cart hea-new-product-icon-cart"></i>
-                                        </button>
+                    <div class="product-grid">
+                        @foreach($allProductByCategory[$item->label] as $item)
+                        <div class="product-box-responsive">
+                            <img src="{{ $item->image }}" class="img-fluid card-img-top hea-new-product-image" alt="...">
+                            <div class="card-body hea-new-product-body">
+                                <h5 class="card-title hea-new-product-title">{{ $item->label }}</h5>
+                                <div>
+                                    <div>
+                                        <p class="card-text hea-new-product-price">{{$item->realPrice }}đ</p>
+                                        <p class="card-text hea-new-product-saleoff">{{$item->price}}đ</p>
                                     </div>
+                                    <button onclick="handleToastButtonClick(); handleAddProduct({{ $item->id }})" href="#" class="hea-new-product-btn"><i class="fas fa-shopping-cart hea-new-product-icon-cart"></i></button>
                                 </div>
                             </div>
-                        </li>
+                        </div>
                         @endforeach
                     </div>
                 </div>
@@ -122,6 +116,11 @@
     }
 
     function handleAddProduct(id) {
+        let amountTextProduct = document.querySelector('.hea-header-cart');
+        let existingBadge = document.querySelector('.hea-header-amount-cart');
+        if (existingBadge) {
+            existingBadge.remove(); // Xóa thẻ đã tồn tại nếu có
+        }
         let data = {
             'data': [{
                 'attributes': {
@@ -137,9 +136,19 @@
             method: "POST",
             dataType: "json",
             data: JSON.stringify(data)
-        }).done( function( result ) {
-            console.log( result );
+        }).done(function(result) {
+            let responseData = result.included;
+            let amountProduct = 0;
+            for (let i = 0; i < responseData.length; i++) {
+                if (responseData[i].type === 'basket.product') {
+                    let quantity = responseData[i].attributes['order.product.quantity'];
+                    amountProduct += quantity;
+                }
+            }
+            let html = `<span class="position-absolute top-0 start-100 translate-middle hea-header-amount-cart badge rounded-pill bg-danger">${amountProduct}<span class="visually-hidden">unread messages</span></span>`;
+            amountTextProduct.insertAdjacentHTML('afterend', html);
         });
     }
+
 </script>
 

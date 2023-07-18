@@ -1,136 +1,11 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>Title of the Document</title>
-    <link rel="stylesheet" href="{{asset('css/lightslider.css')}}">
-    <script type="text/javascript" src="{{asset('js/Jquery.js')}}"></script>
-    <script type="text/javascript" src="{{asset('js/lightslider.js')}}"></script>
     <style>
-        .hea-flash-product-item{
-            width: 305px !important;
-            height: 476px;
-            padding: 24px;
-            border: 1px solid #CDCDCD;
-            box-sizing: border-box;
-            margin: 0 16px;
-        }
-        .hea-flash-product-image{
-            width: 257px;
-            height: 257px;
-            position: relative;
-        }
-        .hea-flash-product-title{
-            font-weight: 600;
-            font-size: 20px;
-            margin: 24px 0 8px 0;
-        }
-        .hea-flash-product-body{
-            padding: 0 !important;
-        }
-        .hea-flash-product-body > div{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 30px;
-        }
-        .hea-flash-product-price{
-            font-weight: 600;
-            font-size: 18px;
-            color: var(--third-color);
-            margin: 0px;
-        }
-        .hea-flash-product-saleoff{
-            font-weight: 500;
-            font-size: 20px;
-            text-decoration-line: line-through;
-            color: rgba(30, 30, 30, 0.5);
-        }
-        .hea-flash-product-list{
-            display: flex;
-            justify-content: center;
-            margin-top: 24px;
-            margin-bottom: 116px;
-        }
-        .hea-flash-product-saleoff-rate{
-            position: absolute;
-            top: 0px;
-            right: 0px;
-            width: 71px;
-            height: 34px;
-            background: #D35400;
-            border-radius: 0px 8.75px 0px 8.75px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 20px;
-            color: #F8F8F8;
-        }
-        .hea-flash-product-icon-start{
-            color: #FFC700 !important;
-        }
 
-
-
-
-
-
-        .hea-flash-product-catagory{
-            width: 100%;
-            height: 109px;
-            background: #F1EEE6;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-right: 24px;
-            padding-left: 27px;
-        }
-        .hea-flash-product-catagory-btn{
-            width: 223px;
-            height: 65px;
-            background: #924C32 !important;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 24px !important;
-        }
-        .hea-flash-product-catagory-btn > i{
-            margin-left: 14px;
-        }
-        .hea-flash-product-catagory-title{
-            font-weight: 700;
-            font-size: 48px;
-            color: #924C32;
-            margin-top: 59px;
-        }
-        .hea-flash-product-catagory-title > i{
-            margin-right: 25px;
-        }
-
-        .hea-flash-product-catagory-container{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .hea-flash-product-icon-start{
-            font-size: 16px;
-            width: 20px;
-            height: 20px;
-            padding: 0px;
-        }
-        .hea-flash-product-catagory{
-            margin-top: 59px;
-            margin-bottom: 24px;
-        }
-        .hea-flash-product-banner{
-            margin-top: 116px;
-            margin-bottom: -85px;
-        }
-        .container{
+        .hea-material-container{
             display: flex;
             width: 80%;
+            height: 780px;
             overflow-x: hidden ;
+            margin-top: 100px;
         }
         .hea-material-text{
             width: 54%;
@@ -166,62 +41,115 @@
             text-align: center;
         }
         .hea-material-item >h3{
-            color:#482619;
-            text-align: center;
-            font-size: 32px;
+
+        }
+
+
+        .hea-material-item3{
+            background: #D3CAE9;
+        }.hea-material-item4{
+             background: #85A15F;
+         }
+        .item-a{
+            position: relative;
+            height: 627px;
+            display: flex;
+            align-items: center;
+        }
+        .hea-material-item{
+            position: relative;
+        }
+        .hea-material-image1,
+        .hea-material-image3{
+            position: absolute;
+            top: -10%;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .hea-material-image2,
+        .hea-material-image4{
+            position: absolute;
+            bottom: -10%;
+            left: 50%;
+            transform: translateX(-50%);
         }
         .hea-material-item2{
             background: #F4AB5D;
         }
-        .hea-material-item3{
-            background: #D3CAE9;
-        }.hea-material-item4{
-            background: #85A15F;
+        .hea-material-item >div>h3{
+            color:#482619;
+            text-align: center;
+            font-size: 32px;
+            border-bottom: 3px solid #AFC9AB;
+            display: block;
+            width: 80%;
+            padding: 0 8px 20px;
+            margin: 30px auto;
+        }
+        .hea-material-item >div>p{
+            font-size: 20px;
+            line-height: 2;
+        }
+        .hea-material-item{
+            display: flex;
+            align-items: end;
+            padding: 0 16px;
+        }
+        .hea-material-item2,
+        .hea-material-item4{
+            align-items: start;
+        }
+        .hea-material-item2 >div,
+        .hea-material-item4 >div{
+            padding-top: 20%;
         }
 
-
     </style>
-
-</head>
-<body>
-<div class="container">
+<div class="hea-material-container">
     <div class="hea-material-text">
         <h3 class="hea-material-title">100% Minh bạch nguyên liệu</h3>
         <p class="hea-material-desc">Sản phẩm an LÀNH - Con người chân THẬT</p>
         <button class="hea-material-btn">Xem thêm</button>
     </div>
     <ul id="autoWidth" class="cs-hidden">
-        <li class="item-a">
+        <li class="item-a item-a1">
             <div class="card hea-material-item hea-material-item1">
-                    <img src="{{asset('assets/clients/images/bacha.png')}}" class="card-img-top img-fluid hea-flash-product-image" alt="...">
+                <div>
+                    <img src="{{asset('assets/clients/images/bacha.png')}}" class="hea-material-image1 img-fluid" alt="...">
                     <h3>BẠC HÀ</h3>
+                    <p>“Lá Bạc hà được sử dụng trong các sản phẩm mỹ phẩm như: cao dược liệu để gội đầu, lá tắm cho trẻ em, nước súc miệng..."</p>
+                </div>
             </div>
         </li>
-        <li class="item-a">
+        <li class="item-a item-a2 ">
             <div class="card hea-material-item hea-material-item2">
-                <h3>CAM</h3>
-                <img src="{{asset('assets/clients/images/cam.png')}}" class="card-img-top img-fluid hea-flash-product-image" alt="...">
+                <div>
+                    <img src="{{asset('assets/clients/images/cam1.png')}}" class="hea-material-image2 img-fluid" alt="...">
+                    <h3>CAM HƯƠNG</h3>
+                    <p>“Lá Bạc hà được sử dụng trong các sản phẩm mỹ phẩm như: cao dược liệu để gội đầu, lá tắm cho trẻ em, nước súc miệng..."</p>
+                </div>
             </div>
         </li>
-        <li class="item-a">
+        <li class="item-a item-a3 ">
             <div class="card hea-material-item hea-material-item3">
-
-                    <img src="{{asset('assets/clients/images/oaihuong.png')}}" class="card-img-top img-fluid hea-flash-product-image" alt="...">
+                <div>
+                    <img src="{{asset('assets/clients/images/oaihuong.png')}}" class="hea-material-image3 img-fluid" alt="...">
                     <h3>OẢI HƯƠNG</h3>
-
+                    <p>“Lá Bạc hà được sử dụng trong các sản phẩm mỹ phẩm như: cao dược liệu để gội đầu, lá tắm cho trẻ em, nước súc miệng..."</p>
+                </div>
             </div>
         </li>
-        <li class="item-a">
+        <li class="item-a item-a4">
             <div class="card hea-material-item hea-material-item4">
-                    <img src="{{asset('assets/clients/images/xa.png')}}" class="card-img-top img-fluid hea-flash-product-image" alt="...">
+               <div>
+                   <img src="{{asset('assets/clients/images/xa.png')}}" class="hea-material-image4 img-fluid" alt="...">
+                   <h3>XẢ CHANH</h3>
+                   <p>“Lá Bạc hà được sử dụng trong các sản phẩm mỹ phẩm như: cao dược liệu để gội đầu, lá tắm cho trẻ em, nước súc miệng..."</p>
+               </div>
             </div>
         </li>
     </ul>
-
-
 </div>
-</body>
-
 <script>
     $(document).ready(function() {
         $('#autoWidth').lightSlider({

@@ -63,6 +63,16 @@ Route::get('/popup', [APISearchController::class, 'show']);
 Route::get('/search', [HomeController::class, 'index']);
 
 
+Route::get('/lien-he', function () {
+    return view('layouts.contact');
+});
+Route::get('/bai-viet', function () {
+    return view('layouts.contact');
+});
+Route::get('/ve-chung-toi', function () {
+    return view('layouts.aboutus');
+});
+
 Route::get('/slider', [HomeController::class, 'slider']);
 Route::get('/upload', function () {
     return view('upload-image');

@@ -1,9 +1,20 @@
 <style>
+    footer{
+        font-family: 'Nunito', sans-serif;
+    }
+    .col-md-3 > h4{
+        font-weight: 700;
+    }
     .hea-footer-image{
         width: 100%;
     }
     .footer-mobile{
         display: none;
+    }
+    .active{
+        font-weight: unset;
+        font-size: unset;
+        color: unset !important;
     }
     @media (max-width: 1750px) {
         .hea-footer-text{
@@ -247,6 +258,7 @@
         .hea-about-us-content{
             padding: 0;
             margin-top: 16px;
+            max-width: 100%;
         }
         .hea-about-us-decs{
             font-size: 12px;
@@ -255,7 +267,7 @@
         .hea-about-us-container > span{
             font-size: 80px;
             position: absolute;
-            top: -15px;
+            top: -22%;
             left: 0;
         }
         .hea-about-us-container > p {
@@ -375,6 +387,169 @@
             width: 100%;
             height: 100%;
             background-color: white;
+        }
+        .hea-header-container-search{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: white;
+        }
+        .hea-search-close{
+            border: none;
+            background: transparent;
+            color: #924C32;
+        }
+        .hea-search-close > i{
+            font-size: 23px;
+        }
+        #navbarTogglerDemo05 > div{
+            display: flex;
+            align-content: center;
+        }
+        #navbarTogglerDemo05{
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            padding: 16px;
+            height: 100%;
+        }
+        #searchResults{
+            width: 100%;
+            height: 100% !important;
+            /*overflow: auto;*/
+            /*margin-top: 20px;*/
+            /*padding: 16px;*/
+            /*border: none;*/
+        }
+        .hea-search-cart{display: none}
+        .hea-list-suggest-image{
+            width: 54px !important;
+            height: 54px !important;
+            margin-right: 8px;
+            border-radius: 8px;
+        }
+        .hea-list-suggest-item{
+            margin-bottom: 16px;
+            border: none
+        }
+        .hea-list-suggest-title{
+            font-size: 10px;
+            margin-top: 6px;
+        }
+        .hea-list-suggest-price{
+            font-size: 13px;
+            margin-top: %;
+        }
+        .modal-header >div{
+            display: flex;
+            align-items: center ;
+            width: 100%;
+        }
+        .hea-header-form{
+            width: % !important;
+            margin-left: 8px;
+        }
+        .btn, .btn:hover, .btn:focus{
+            background: transparent;
+            border: none;
+        }
+        .hea-product-cart-container{
+            display: block;
+            margin-top: 20px;
+        }
+
+        .hea-product-cart-result{
+            width: 100%;
+        }
+        #inputFullName,
+        #inputTakeNote,
+        #inputPassword,
+        #inputEmail,
+        #inputAddress{
+            height: 58%;
+        }
+        .hea-product-cart-posts{
+            margin: 0;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+            width: 100%;
+
+        }
+        .hea-product-cart-input-code-discount{
+            border: 1px solid #CDCDCD;
+            height: 38px;
+        }
+        .hea-product-cart-button-apply{
+            font-size: 12px;
+            margin-left: 10px;
+            height: 38px;
+            border-radius: 4px;
+        }
+        .hea-product-cart-desc{
+            margin-top: 3px;
+            font-size: 8px !important;
+        }
+        .hea-product-cart-content-cost{
+            font-size: 12px !important;
+        }
+        .hea-product-cart-content-cost-total{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            z-index: 1000;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 8%;
+            background: white;
+            padding: 16px;
+            border: 1px solid #0000002B;
+            border-radius: 10px;
+
+        }
+        .hea-product-cart-button-payment{
+            margin-top:0;
+            width: 25%;
+            height: 42px;
+            background: #924C32;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .hea-product-cart-content-text-total{
+            font-size: 16px;
+        }
+        .hea-product-cart-content-price-total{
+            font-size: 20px;
+            margin-left: 30%;
+        }
+        .hea-product-cart-list-title,
+        .hea-product-cart-content-cost,
+        .hea-product-cart-content-cost-item >li,
+        .hea-product-cart-posts > label{
+            font-size: 14px !important;
+        }
+        .form-label{
+            font-size: 12px;
+        }
+        .form-control, .form-select{
+            box-shadow: none !important;
+            outline: none !important;
+            font-size: 12px;
+        }
+        .hea-product-cart-image{
+            width: 56px;
+            height: 56px;
+        }
+        .hea-product-cart-title{
+            font-size: 12px
+        }
+        .hea-material-container{
+            margin-top: 0;
         }
 
     }

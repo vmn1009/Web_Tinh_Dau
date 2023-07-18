@@ -52,17 +52,14 @@
 }
 .hea-about-us-content{
     padding-left: 49px;
-    position: relative;
-}.hea-about-us-sign{
-     font-family: 'Dancing Script', cursive;
-     font-style: italic;
-     font-weight: 400;
-     font-size: 120px;
-     position: absolute;
-     bottom: 60px;
-     right: 20px;
-     color: #924C32;color: #924C32;
- }
+}
+.hea-about-us-sign{
+    font-family: 'Dancing Script', cursive;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 120px;
+    color: #924C32;
+}
 .head-about-us-btn{
     float: right;
     margin-top: 110px;
@@ -146,55 +143,6 @@
     max-height: 55% !important;
 }
 
-
-
-#searchResults {
-    width: 450px;
-    max-height: 400px;
-    overflow: auto;
-    border: 2px solid #dfdada;
-    border-radius: 10px;
-    padding: 20px;
-    position: absolute;
-    top: 58px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    background-color: #f8fafc;
-    display: none;
-}
-
-.hea-list-suggest-item {
-    max-height: 400px;
-    display: flex;
-    border-bottom: 2px solid #dfdada;
-}
-
-.hea-list-suggest-image {
-    width: 56px;
-    height: 56px;
-}
-
-.hea-header-form {
-    position: relative;
-}
-
-.hea-list-suggest-price,
-.hea-list-suggest-realPrice {
-    font-size: 18px;
-    margin: 0px;
-}
-.hea-header-container{
-    background-color: white;
-    z-index: 10 !important;
-}
-.hea-list-suggest-btn {
-    width: 40px;
-    height: 40px;
-}
-.hea-list-suggest-cart {
-    font-size: 17px;
-}
 
 
 .hea-header-container-template2{

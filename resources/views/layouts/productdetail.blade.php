@@ -9,6 +9,24 @@
         display: flex;
     }
 
+    #inputCounter{
+        width: 50px;
+        height: 30px;
+        border: none;
+        text-align: center;
+        font-size: 22px;
+        color: #533f03;
+    }
+    #inputCounter:focus{
+        border: none !important;
+        outline: none;
+    }
+    .hea-product-detail-tab-btn
+    ,.hea-product-detail-tab-btn:hover
+    ,.hea-product-outstanding-card-title:hover{
+        color: black;
+    }
+
 </style>
 <section class="hea-product-detail-container ">
 
@@ -40,13 +58,9 @@
             </div>
             <div style="display: flex;">
                 <div class="hea-product-detail-count-container">
-                    <button class="hea-product-detail-count-decre hea-product-detail-count-btn" onclick="decrement()">
-                        <i class="fas fa-minus"></i>
-                    </button>
-                    <div id="counting"></div>
-                    <button class="hea-product-detail-count-incre hea-product-detail-count-btn" onclick="increment()">
-                        <i class="fa-regular fa-plus"></i>
-                    </button>
+                    <button id="increment" class="hea-product-detail-count-decre hea-product-detail-count-btn" onclick="decrease()"><i class="fas fa-minus"></i></button>
+                    <input type="text" value="0" id="inputCounter" class="counting">
+                    <button id="decrement" class="hea-product-detail-count-incre hea-product-detail-count-btn" onclick="increase() "><i class="fa-regular fa-plus"></i></button>
                 </div>
 
                 <button class="btn hea-product-detail-btn " id="liveToastBtn" style="align-items: center; background: #924C32;">Thêm vào
@@ -115,7 +129,7 @@
                 <h2 class="hea-product-outstanding-card-title-main hea-product-relavent-card-title-main">SẢN PHẨM LIÊN QUAN</h2>
                 <div class="hea-product-relavent-card-container">
                     @foreach ($otherListProductByCategory[0] as $item)
-                    <a href="/product-detail/{{$item->url}}" class="card hea-product-outstanding-card" style="text-decoration: none">
+                    <div class="card hea-product-outstanding-card" style="text-decoration: none">
                         <img class="card-img-top hea-product-outstanding-image" src="{{$item->image}}" alt="Card image cap">
                         <div class="card-body hea-product-outstanding-card-body">
                             <h5 class="card-title hea-product-outstanding-card-title">{{$item->label}}</h5>
@@ -127,7 +141,7 @@
                                 </button>
                             </div>
                         </div>
-                    </a>
+                    </div>
                     @endforeach
                 </div>
 
@@ -139,7 +153,7 @@
         <h2 class="hea-product-outstanding-card-title-main">SẢN PHẨM NÔI BẬT</h2>
         @foreach($otherListProductByCategory[1] as $item)
         <div class="card hea-product-outstanding-card">
-            <a href="/product-detail/{{$item->url}}" style="text-decoration: none">
+            <div style="text-decoration: none">
                 <img class="card-img-top hea-product-outstanding-image"
                      src="{{$item->image}}" alt="Card image cap">
                 <div class="card-body hea-product-outstanding-card-body">
@@ -151,7 +165,7 @@
                                 class="fas fa-shopping-cart hea-product-outstanding-icon-cart"></i></button>
                     </div>
                 </div>
-            </a>
+            </div>
         </div>
         @endforeach
 
@@ -159,22 +173,17 @@
 </div>
 
 <script>
-    let data = 0;
-    document.getElementById("counting").innerText = data;
 
-    function increment() {
-        data = data + 1;
-        document.getElementById("counting").innerText = data;
+    let input=document.getElementById("inputCounter")
+    const currentQuantity = parseInt(input.innerHTML);
+    function increase(){
+        input.value=eval(input.value)+1
     }
-
-    function decrement() {
-        if(data>=1){
-            data = data - 1;
-            document.getElementById("counting").innerText = data;
+    function decrease(){
+        if(currentQuantity > 1){
+            input.value=eval(input.value)-1
         }
     }
-
-
 </script>
 
 @endsection

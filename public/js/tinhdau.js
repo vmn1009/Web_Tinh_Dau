@@ -19,6 +19,8 @@ function handleToastButtonClick() {
 }
 
 function handleAddProduct(id) {
+    let amountProduct = 0;
+    let amountTextProduct = document.querySelector('.hea-header-amount-cart');
     let data = {
         'data': [{
             'attributes': {
@@ -35,6 +37,15 @@ function handleAddProduct(id) {
         dataType: "json",
         data: JSON.stringify(data)
     }).done( function( result ) {
-        console.log( result );
+        let responseData = result.included;
+        for (let i = 0; i < responseData.length; i++) {
+            if (responseData[i].type === 'basket.product') {
+                let quantity = responseData[i].attributes['order.product.quantity'];
+                amountProduct += quantity;
+                amountProduct++;
+                amountTextProduct.textContent = amountProduct;
+            }
+        }
+        console.log(amountProduct);
     });
 }
